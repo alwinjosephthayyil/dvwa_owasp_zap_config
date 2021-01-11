@@ -90,9 +90,12 @@ pipeline {
                     retry(3) {
                         sleep 5
 						shellOutput = sh(script: "curl -v -L http://localhost:${dvwaContainerPortNumber}", returnStdout: true).trim()
+						echo "checkpoint 1"
 						if(!shellOutput.contains("<title>Login :: Damn Vulnerable Web Application (DVWA) v1.10 *Development*</title>"))
+							echo "checkpoint 2"
 							error "${dvwaContainerName} still not started"
 						else {
+							echo "checkpoint 3"
 							echo "${dvwaContainerName} has started"	
 							startAndInitializeDVWAContainer(dvwaContainerPortNumber)					
 						}
@@ -105,6 +108,7 @@ pipeline {
 						this is where we will be building our custom zap2docker-stable image with the arguments the user/group id of the jenkins user 
 						that is executing this build job
 					*/
+					echo "checkpoint 4"
 					def customImage = docker.build("modified-zap2docker-stable"," --build-arg USER_ID=\$(id -u jenkins) --build-arg GROUP_ID=\$(id -g jenkins) .")
  
 					def jenkinsWorkDir = env.WORKSPACE
@@ -113,6 +117,7 @@ pipeline {
 						So when the block of code exits, the container will be stoppped and removed.
 						We are also mounting the current workspace to /zap/wrk here where we can transfer files between the container and workspace with ease
 					*/
+					echo "checkpoint 5"
 					customImage.inside("-p 8100:8080 --name=${zapContainerName} -v ${jenkinsWorkDir}:/zap/wrk/:rw -w /zap/wrk/  --network ${owaspZapNet}"){
 						try{
 							// overwriting the files in zap container with ours
