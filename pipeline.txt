@@ -92,10 +92,10 @@ pipeline {
 						shellOutput = sh(script: "curl -v -L http://localhost:${dvwaContainerPortNumber}", returnStdout: true).trim()
 						echo "checkpoint1"
 						if(!shellOutput.contains("<title>Login :: Damn Vulnerable Web Application (DVWA) v1.10 *Development*</title>"))
-							echo "checkpoint2"
+							//echo "checkpoint2"
 							error "${dvwaContainerName} still not started"
 						else {
-							echo "checkpoint3"
+							//echo "checkpoint3"
 							echo "${dvwaContainerName} has started"	
 							startAndInitializeDVWAContainer(dvwaContainerPortNumber)					
 						}
