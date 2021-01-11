@@ -8,7 +8,7 @@ def owaspZapNet = "owasp-zap-net"
 def stopAndRemoveDVWAContainer(dvwaContainerName) {
 	echo "test :: ${dvwaContainerName}" 
 	//def shellOutput = sh(script: "docker ps -aqf \"name=${dvwaContainerName}\"",returnStdout: true).trim()
-	def shellOutput = sh("docker ps -aqf \"name=${dvwaContainerName}\"",returnStdout: true).trim()
+	def shellOutput = sh"docker ps -aqf \"name=${dvwaContainerName}\""
  	echo "done :: shellOutput"
 	//note the double quotes to use variable substitution
 	echo "dvwa container id: ${shellOutput}"
