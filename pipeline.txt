@@ -81,7 +81,7 @@ pipeline {
 					//we start up the dvwa container
 					echo "al"
 					def dvwaContainerPortNumber = 8090
-					def dvwaContainer = docker.image('dvwa').run("-p ${dvwaContainerPortNumber}:80 --name ${dvwaContainerName} --network ${owaspZapNet}");
+					def dvwaContainer = docker.image('citizenstig/dvwa').run("-p ${dvwaContainerPortNumber}:80 --name ${dvwaContainerName} --network ${owaspZapNet}");
  
 					/*
 						we are waiting for 5 seconds before trying to check that the dvwa web application has been initialized and retrying 3 times.
