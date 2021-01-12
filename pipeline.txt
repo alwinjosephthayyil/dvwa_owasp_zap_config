@@ -49,7 +49,7 @@ def startAndInitializeDVWAContainer(dvwaContainerPortNumber) {
 	echo "userToken:${userToken}"
  
 	//once we get both the php session id and user token, we can create the database
-	shellOutput = sh(script: "curl --location --request POST 'http://localhost:${dvwaContainerPortNumber}/setup.php' "+
+	shellOutput = sh(script: "curl --location --request POST 'http://localhost/dvwa/setup.php' "+
 	"--header 'Cookie: PHPSESSID=${phpSessionId}; security=low' " +
 	"--form 'user_token=${userToken}' " +
 	"--form 'create_db=Create+%2F+Reset+Database'",
