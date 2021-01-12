@@ -31,7 +31,9 @@ def startAndInitializeDVWAContainer(dvwaContainerPortNumber) {
 		we dump the headers and the html respoanse into 2 files so that we can extract out the php session id
 		and also the user token
 	*/
-	sh "curl --dump-header headers.txt GET 'http://localhost:${dvwaContainerPortNumber}/setup.php' > htmlresponse.txt"
+	//sh "curl --dump-header headers.txt GET 'http://localhost:${dvwaContainerPortNumber}/setup.php' > htmlresponse.txt"
+	sh "curl --dump-header headers.txt GET 'http://localhost/dvwa/setup.php' > htmlresponse.txt"
+	//http://localhost/dvwa/setup.php
  
 	//getting php session id
 	shellOutput = sh(script: "cat headers.txt | grep \"PHPSESSID\"", returnStdout: true).trim()	
