@@ -115,8 +115,9 @@ pipeline {
 						that is executing this build job
 					*/
 					echo "checkpoint 4"
+					echo "g: ${id jenkins}"
 					//def customImage = docker.build("modified-zap2docker-stable"," --build-arg USER_ID=\$(id -u jenkins) --build-arg GROUP_ID=\$(id -g jenkins) .")
- 					def customImage = docker.build("modified-zap2docker-stable"," --build-arg USER_ID=\$(id jenkins).") 
+ 					def customImage = docker.build{"modified-zap2docker-stable"," --build-arg USER_ID=$(id jenkins)."} 
  					//def customImage = docker.build("modified-zap2docker-stable"," --build-arg USER_ID = idjenkins.")
 					
 					def jenkinsWorkDir = env.WORKSPACE
