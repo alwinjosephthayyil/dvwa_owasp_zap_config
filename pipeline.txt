@@ -119,6 +119,8 @@ pipeline {
 					eco "g: ${id jenkins}"h
 					//def customImage = docker.build("modified-zap2docker-stable"," --build-arg USER_ID=\$(id -u jenkins) --build-arg GROUP_ID=\$(id -g jenkins) .")
  					def customImage = docker.build("modified-zap2docker-stable"," --build-arg USER_ID=1000.")
+					echo "al"
+					
  					//def customImage = docker.build("modified-zap2docker-stable"," --build-arg USER_ID = idjenkins.")
 					
 					def jenkinsWorkDir = env.WORKSPACE
