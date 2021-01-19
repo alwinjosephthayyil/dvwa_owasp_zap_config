@@ -118,12 +118,12 @@ pipeline {
 					echo "checkpoint 4"
 					eco "g: ${id jenkins}"h
 					//def customImage = docker.build("modified-zap2docker-stable"," --build-arg USER_ID=\$(id -u jenkins) --build-arg GROUP_ID=\$(id -g jenkins) .")
- 					def customImage = docker.build("modified-zap2docker-stable"," --build-arg USER_ID=1000.")
+ 					//def customImage = docker.build("modified-zap2docker-stable"," --build-arg USER_ID=1000.")
 					echo "albert"
 					
- 					//def customImage = docker.build("modified-zap2docker-stable"," --build-arg USER_ID = idjenkins.")
+ 					def customImage = docker.build("modified-zap2docker-stable"," --build-arg USER_ID = idjenkins.")
 					
-					//def jenkinsWorkDir = env.WORKSPACE
+					def jenkinsWorkDir = env.WORKSPACE
 					/*
 						take note that when we spin up the container using this custom image, all commands in this block of code runs inside the container.
 						So when the block of code exits, the container will be stoppped and removed.
