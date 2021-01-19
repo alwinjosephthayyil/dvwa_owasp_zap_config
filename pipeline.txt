@@ -123,7 +123,7 @@ pipeline {
 					
  					//def customImage = docker.build("modified-zap2docker-stable"," --build-arg USER_ID = idjenkins.")
 					
-					def jenkinsWorkDir = env.WORKSPACE
+					//def jenkinsWorkDir = env.WORKSPACE
 					/*
 						take note that when we spin up the container using this custom image, all commands in this block of code runs inside the container.
 						So when the block of code exits, the container will be stoppped and removed.
@@ -136,7 +136,7 @@ pipeline {
 							sh "cp /zap/wrk/log4j.properties /zap/xml/"
 							sh "cp /zap/wrk/zap-baseline.py /zap/"
 							sh "cp /zap/wrk/zap_common.py /zap/"
-							sh "cp /zap/wrk/config.xml /zap/xml/"
+							  sh "cp /zap/wrk/config.xml /zap/xml/"
  
 							//check to see if we are not able to reach the dvwa container through the docker user defined network
 							def shellReturnStatus = sh(script: "ping -c 2 ${dvwaContainerName}", returnStatus: true)
