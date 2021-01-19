@@ -1,5 +1,4 @@
-import jenkins.model.*
-jenkins = Jenkins.instance
+
 //declaring common variables that will be used throughout the pipeline script
 def shellOutput = ""
 def dvwaContainerName = "dvwacontainer"
@@ -120,7 +119,7 @@ pipeline {
 					eco "g: ${id jenkins}"h
 					//def customImage = docker.build("modified-zap2docker-stable"," --build-arg USER_ID=\$(id -u jenkins) --build-arg GROUP_ID=\$(id -g jenkins) .")
  					def customImage = docker.build("modified-zap2docker-stable"," --build-arg USER_ID=1000.")
-					echo "al"
+					echo "albert"
 					
  					//def customImage = docker.build("modified-zap2docker-stable"," --build-arg USER_ID = idjenkins.")
 					
