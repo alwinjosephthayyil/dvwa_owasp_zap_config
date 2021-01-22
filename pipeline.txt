@@ -121,7 +121,7 @@ pipeline {
  					//def customImage = docker.build("modified-zap2docker-stable"," --build-arg USER_ID=1000.")
 					echo "albert"
 					
- 					//def customImage = docker.build("modified-zap2docker-stable"," --build-arg USER_ID = idjenkins.")
+ 					def customImage = docker.build("modified-zap2docker-stable"," --build-arg USER_ID = idjenkins.")
 					
 					def jenkinsWorkDir = env.WORKSPACE
 					/*
