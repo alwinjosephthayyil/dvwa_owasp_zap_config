@@ -1,4 +1,4 @@
-
+import groovy.transform.Field
 //declaring common variables that will be used throughout the pipeline script
 def shellOutput = ""
 def dvwaContainerName = "dvwacontainer"
